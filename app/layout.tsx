@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: '1 to 50',
-  description: 'Click numbers from 1 to 50 fast as much as you can',
+  description: 'Click numbers from 1 to 50 as fast as you can',
 }
 
 export default function RootLayout({

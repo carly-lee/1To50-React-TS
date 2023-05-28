@@ -2,7 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { getShuffledNumbers } from "./Utils";
 import Cell from "./Cell";
 
-export default function Board(){
+interface Props {
+  onGameEnd: () => void;
+}
+export default function Board({onGameEnd}: Props){
   const [numbers, setNumbers] = useState(getShuffledNumbers(1));
   const [cells, setCells] = useState<JSX.Element[]>([]);
   const [currentNumber, setCurrentNumber] = useState(1);
@@ -11,7 +14,7 @@ export default function Board(){
   useEffect(() => {
     const sum = numbers.reduce((acc, curr) => acc + curr, 0);
     if(sum === 0) {
-      console.log('Game end!!');
+      onGameEnd();
     }
     const numberCells = [];
     for(let i = 0; i < 25; i++){

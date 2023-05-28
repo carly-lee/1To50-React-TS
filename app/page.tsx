@@ -1,18 +1,18 @@
 'use client';
-import Board from "./src/Board";
-import Timer from "./src/Timer";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  
   function onStart(){
-    console.log('Clicked start')
+    router.push('/game-screen');
   }
   
   return (
     <div>
       <h1>1 to 50</h1>
+      <div>Click 1 to 50 as fast as you can!</div>
       <button onClick={onStart}>Let's start!</button>
-      <Timer />
-      <Board />
     </div>
   )
 }
